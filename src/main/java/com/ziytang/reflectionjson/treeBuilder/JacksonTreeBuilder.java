@@ -30,6 +30,7 @@ public class JacksonTreeBuilder implements TreeBuilder{
         while (cur < str.length()) {
             if (str.charAt(cur) == '=') {
                 String key = str.substring(pre, cur);
+                key = ParenthesesUtil.camelToUnderscore(key);
                 char c = str.charAt(cur + 1);
                 if (c == '[' || c == '{') {
                     int end = ParenthesesUtil.indexOfEndParentheses(str, cur + 1);

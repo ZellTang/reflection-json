@@ -11,6 +11,7 @@ public class Main {
         String res1 = test(0);
         String res2 = test(1);
         System.out.println(res1.equals(res2));
+        System.out.println(res2);
     }
     private static String test(int code) {
         TreeBuilder builder = JsonTreeFactory.getBuilder(BuilderType.getType(code));

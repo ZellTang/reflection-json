@@ -83,4 +83,18 @@ public class ParenthesesUtil {
             node.add(value);
         }
     }
+    public static String camelToUnderscore(String camel) {
+        if (camel == null || camel.length() == 0) return "";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < camel.length(); i++) {
+            char c = camel.charAt(i);
+            if (Character.isUpperCase(c)) {
+                sb.append("_");
+                sb.append(Character.toLowerCase(c));
+            } else {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
+    }
 }

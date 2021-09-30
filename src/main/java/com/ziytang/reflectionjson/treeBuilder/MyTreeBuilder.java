@@ -27,6 +27,7 @@ public class MyTreeBuilder implements TreeBuilder{
             if (str.charAt(cur) == '=') {
                 Object value = null;
                 String key = str.substring(pre, cur);
+                key = ParenthesesUtil.camelToUnderscore(key);
                 char next = str.charAt(cur + 1);
                 if (next == '[' || next == '{') {
                     int end = ParenthesesUtil.indexOfEndParentheses(str, cur + 1);
