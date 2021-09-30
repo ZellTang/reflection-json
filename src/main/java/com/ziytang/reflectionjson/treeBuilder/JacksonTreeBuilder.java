@@ -29,7 +29,7 @@ public class JacksonTreeBuilder implements TreeBuilder{
         int pre = 0, cur = 0;
         while (cur < str.length()) {
             if (str.charAt(cur) == '=') {
-                String key = ParenthesesUtil.addQuote(str.substring(pre, cur));
+                String key = str.substring(pre, cur);
                 char c = str.charAt(cur + 1);
                 if (c == '[' || c == '{') {
                     int end = ParenthesesUtil.indexOfEndParentheses(str, cur + 1);
@@ -79,11 +79,9 @@ public class JacksonTreeBuilder implements TreeBuilder{
     public String printTree(Object tree) {
         String res = null;
         try {
-            res =  mapper.writeValueAsString(tree);
+            return  mapper.writeValueAsString(tree);
         } catch (JsonProcessingException e) {
             throw new RuntimeException("Jackson tree to json string failed");
         }
-
-        return res.replaceAll("\\\\\"", "");
     }
 }
