@@ -80,7 +80,7 @@ public class JacksonTreeBuilder implements TreeBuilder{
     public String printTree(Object tree) {
         String res = null;
         try {
-            return  mapper.writeValueAsString(tree);
+            return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(tree);
         } catch (JsonProcessingException e) {
             throw new RuntimeException("Jackson tree to json string failed");
         }
